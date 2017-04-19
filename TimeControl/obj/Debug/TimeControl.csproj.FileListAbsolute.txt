@@ -1,0 +1,13 @@
+C:\Users\琚\Desktop\TimeControl\TimeControl\TimeControl\obj\Debug\TimeControl.csprojResolveAssemblyReference.cache
+C:\Users\琚\Desktop\TimeControl\TimeControl\TimeControl\obj\Debug\TimeControl.Properties.Resources.resources
+C:\Users\琚\Desktop\TimeControl\TimeControl\TimeControl\obj\Debug\TimeControl.csproj.GenerateResource.Cache
+C:\Users\琚\Desktop\TimeControl\TimeControl\TimeControl\bin\Debug\TimeControl.exe
+C:\Users\琚\Desktop\TimeControl\TimeControl\TimeControl\bin\Debug\TimeControl.pdb
+C:\Users\琚\Desktop\TimeControl\TimeControl\TimeControl\obj\Debug\TimeControl.exe
+C:\Users\琚\Desktop\TimeControl\TimeControl\TimeControl\obj\Debug\TimeControl.pdb
+C:\Users\琚\Desktop\TimeControl\TimeControl\TimeControl\bin\Debug\TimeControl.exe.config
+C:\Users\琚\Desktop\TimeControl\TimeControl\TimeControl\obj\Debug\TimeControl.frmMain.resources
+C:\Users\琚\Desktop\TimeControl\TimeControl\TimeControl\obj\Debug\TimeControl.frmData.resources
+C:\Users\琚\Desktop\TimeControl\TimeControl\bin\Debug\TimeControl.exe.config
+C:\Users\琚\Desktop\TimeControl\TimeControl\obj\Debug\TimeControl.exe
+C:\Users\琚\Desktop\TimeControl\TimeControl\obj\Debug\TimeControl.pdb
