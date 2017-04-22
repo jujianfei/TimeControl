@@ -34,7 +34,7 @@ namespace TimeControl
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(connStr);
             string sql = "select * from dataRecord";
-            SqlDataAdapter ad = new SqlDataAdapter(sql,conn);
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
             conn.Open();
             ad.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -89,6 +89,26 @@ namespace TimeControl
             }
             xlApp.Quit();
             GC.Collect();//强行销毁    
+        }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            string connstr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connstr);
+
+            DateTime dts = Convert.ToDateTime(dtpStart.Text);
+            DateTime dte = Convert.ToDateTime(dtpEnd.Text);
+            string sql = "select * from dataRecord where datediff(day,@dts,StartTime) >=0 and datediff(day,StartTime,@dte) >=0";
+            SqlParameter[] spa = new SqlParameter[]{
+                new SqlParameter("@dts", dts),
+                new SqlParameter("@dte", dte)
+            };            
+            conn.Open();
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            ad.SelectCommand.Parameters.AddRange(spa);
+            ad.Fill(dt);
+            dataGridView1.DataSource = dt;
         }
     }
 }
