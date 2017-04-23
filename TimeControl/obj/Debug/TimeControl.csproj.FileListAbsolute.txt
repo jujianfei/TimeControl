@@ -18,3 +18,5 @@ C:\Users\琚\Desktop\TimeControl\TimeControl\obj\Debug\TimeControl.frmData.resou
 C:\Users\琚\Desktop\TimeControl\TimeControl\obj\Debug\TimeControl.frmMain.resources
 C:\Users\琚\Desktop\TimeControl\TimeControl\obj\Debug\TimeControl.Properties.Resources.resources
 C:\Users\琚\Desktop\TimeControl\TimeControl\obj\Debug\TimeControl.csproj.GenerateResource.Cache
+C:\Users\琚\Desktop\TimeControl\TimeControl\bin\Debug\DAL.dll
+C:\Users\琚\Desktop\TimeControl\TimeControl\bin\Debug\DAL.pdb

@@ -18,16 +18,12 @@ namespace TimeControl
             InitializeComponent();
         }
 
-        //引用配置文件内容
-
-        string connstr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
-
         private void Form1_Load(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
             txtStartTime.Text = dt.ToShortTimeString().ToString();
         }
-
+        //点击添加按钮
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (txtContent.Text=="" || txtStartTime.Text=="" || cmbCategory.Text=="" || cmbHour.Text=="" || cmbMinute.Text=="")
@@ -45,28 +41,15 @@ namespace TimeControl
                 TimeSpan ts = ot - st;
                 int sum = Convert.ToInt32(ts.TotalMinutes);
                 //3.将数据写入到数据库中
-                //3.1连接数据库
-                SqlConnection conn = new SqlConnection(connstr);
-                //3.2准备命令对象
-                //3.3告诉命令对象要做的事情
-                string sql = "insert into dataRecord values(@st,@ct,@ot,@sum,@ca) ";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.Add(new SqlParameter("@st", st));
-                cmd.Parameters.Add(new SqlParameter("@ct", ct));
-                cmd.Parameters.Add(new SqlParameter("@ot", ot));
-                cmd.Parameters.Add(new SqlParameter("@sum", sum));
-                cmd.Parameters.Add(new SqlParameter("@ca", ca));
-                //3.4打开数据库通道
-                conn.Open();
-                //3.5执行sql语句
-                int result = cmd.ExecuteNonQuery();
+                DAL.DAO dao = new DAL.DAO();
+                int result = dao.Insert(st,ct,ca,ot,sum);
                 if (result != 0)
                 {
                     MessageBox.Show("执行成功！", "温馨提示");
                 }
             }
         }
-
+        //查询数据按钮
         private void btnCheck_Click(object sender, EventArgs e)
         {
             frmData f = new frmData();

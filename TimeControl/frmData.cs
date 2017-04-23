@@ -26,21 +26,20 @@ namespace TimeControl
             InitializeComponent();
         }
 
-        //引用配置文件
-        string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
+        DAL.DAO dao = new DAL.DAO();
 
+        //绑定全部数据
         private void frmData_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            SqlConnection conn = new SqlConnection(connStr);
-            string sql = "select * from dataRecord";
-            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
-            conn.Open();
-            ad.Fill(dt);
-            dataGridView1.DataSource = dt;
-
+            dataGridView1.DataSource = dao.SelectAll();
         }
 
+        #region 导出数据表
+        /// <summary>
+        /// 导出数据表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOut_Click(object sender, EventArgs e)
         {
             string fileName = "";
@@ -89,26 +88,15 @@ namespace TimeControl
             }
             xlApp.Quit();
             GC.Collect();//强行销毁    
-        }
+        } 
+        #endregion
 
+        //根据日期查询相关数据
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            string connstr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connstr);
-
             DateTime dts = Convert.ToDateTime(dtpStart.Text);
             DateTime dte = Convert.ToDateTime(dtpEnd.Text);
-            string sql = "select * from dataRecord where datediff(day,@dts,StartTime) >=0 and datediff(day,StartTime,@dte) >=0";
-            SqlParameter[] spa = new SqlParameter[]{
-                new SqlParameter("@dts", dts),
-                new SqlParameter("@dte", dte)
-            };            
-            conn.Open();
-            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
-            ad.SelectCommand.Parameters.AddRange(spa);
-            ad.Fill(dt);
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = dao.SelectByDate(dts, dte);
         }
     }
 }

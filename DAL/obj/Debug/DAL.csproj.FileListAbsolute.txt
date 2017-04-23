@@ -1,0 +1,5 @@
+C:\Users\琚\Desktop\TimeControl\DAL\bin\Debug\DAL.dll
+C:\Users\琚\Desktop\TimeControl\DAL\bin\Debug\DAL.pdb
+C:\Users\琚\Desktop\TimeControl\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\琚\Desktop\TimeControl\DAL\obj\Debug\DAL.dll
+C:\Users\琚\Desktop\TimeControl\DAL\obj\Debug\DAL.pdb
